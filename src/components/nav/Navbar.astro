@@ -3,14 +3,16 @@ import Container from "@components/elements/Container.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<Container class:list={"!p-0 !m-0 !max-w-screen sticky top-0 bg-white z-40 mt-6 shadow-md"}>
-  <nav x-data="{ open: false }" class="p-4">
-    <div class="container mx-auto flex justify-between items-center">
+<Container
+  id="nav-container"
+  class:list={"!p-0 !m-0 !max-w-screen fixed top-0 left-0 right-0 z-40 mt-6"}
+>
+  <nav x-data="{ open: false }" class="transition duration-1000 py-2" :class="{'bg-white shadow-md text-primary': scrolled}" @scroll.window="scrolled = (window.pageYOffset < 150) ? false: true">
+    <div class="container mx-auto flex justify-between items-center px-4">
 
 
       <a href="/" class="text-2xl flex">
-        <Icon class="w-7 h-7 hover:text-primary-light pt-0.5" name="logo_min" />
-        <span class="px-1 font-bold text-slate-900 hover:text-primary-light">Your</span><span class="text-slate-600">Digital</span>
+        <img class="w-14 h-14 opacity-0 transition duration-800" :class="{'opacity-100 delay-100': scrolled}" src="logo_full.svg" />
       </a>
 
       <!-- Hamburger Menu -->
@@ -19,10 +21,11 @@ import { Icon } from "astro-icon/components";
       </button>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="/" class="hover:ttext-primary-light">Home</a></li>
-        <li><a href="/daisyui" class="hover:text-primary-light">DaisyUI</a></li>
-        <li><a href="/404" class="hover:text-primary-light">404</a></li>
+      <ul class="hidden md:flex text-lg font-medium gap-6 menu menu-horizontal text-primary-content">
+        <li><a href="/" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Úvod</a></li>
+        <li><a href="/daisyui" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">O nás</a></li>
+        <li><a href="/404" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Svatba</a></li>
+        <li><a href="/404" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Fotogalerie</a></li>
       </ul>
     </div>
 

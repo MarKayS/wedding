@@ -30,7 +30,7 @@ const { title = siteConfig.title, description, image } = Astro.props;
   
   </head>
 </html>
-<body>
+<body x-data="{scrolled: false}" x-init="$watch('scrolled', value => console.log(value))">
   <Navbar />
   <slot />
   <Footer />
