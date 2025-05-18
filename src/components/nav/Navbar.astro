@@ -22,7 +22,7 @@ import { Icon } from "astro-icon/components";
 
       <!-- Desktop Menu -->
       <ul class="hidden md:flex text-lg font-medium gap-6 menu menu-horizontal text-base-content">
-        <li><a href="/" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Úvod</a></li>
+        <li><a href="#" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Úvod</a></li>
         <li><a href="#ceremony" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Obřad</a></li>
         <li><a href="#palette" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Paleta</a></li>
         <li><a href="#program" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Program</a></li>
@@ -36,22 +36,26 @@ import { Icon } from "astro-icon/components";
       x-show="open"
       x-transition:enter="transition ease-out duration-300"
       x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
+      x-transition:enter-end="opacity-90"
       x-transition:leave="transition ease-in duration-300"
-      x-transition:leave-start="opacity-100"
+      x-transition:leave-start="opacity-90"
       x-transition:leave-end="opacity-0"
-      class="fixed inset-0 bg-primary text-white flex flex-col items-center justify-center space-y-6 z-50">
+      class="fixed inset-0 bg-white flex flex-col items-center justify-center space-y-6 z-50">
+
+      <img class="w-24 h-24 mb-24" src="logo_full_2.svg" />
       <!-- Close Button -->
       <button
         @click="open = false"
-        class="absolute top-6 right-6 text-4xl text-gray-300 hover:text-white focus:outline-none"
+        class="absolute top-6 right-6 text-4xl text-gray-800 hover:text-amber-900 focus:outline-none"
         aria-label="Close menue">
         &times;
       </button>
 
-      <a href="/" class="text-2xl hover:text-primary-light">Home</a>
-      <a href="/daisyui" class="text-2xl hover:text-primary-light">DaisyUI</a>
-      <a href="/404" class="text-2xl hover:text-primary-light">404</a>
+      <a @click="open = false" href="#" class="text-2xl hover:text-amber-900">Domů</a>
+      <a @click="open = false" href="#ceremony" class="text-2xl hover:text-amber-900">O obřadu</a>
+      <a @click="open = false" href="#palette" class="text-2xl hover:text-amber-900">Barevná paleta</a>
+      <a @click="open = false" href="#program" class="text-2xl hover:text-amber-900">Program dne</a>
+      <a @click="open = false" href="#photo" class="text-2xl hover:text-amber-900">Fotogalerie</a>
     </div>
   </nav>
 </Container>
