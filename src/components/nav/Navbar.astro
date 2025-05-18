@@ -12,7 +12,7 @@ import { Icon } from "astro-icon/components";
 
 
       <a href="/" class="text-2xl flex">
-        <img class="w-14 h-14 opacity-0 transition duration-800" :class="{'opacity-100 delay-100': scrolled}" src="logo_full.svg" />
+        <img class="w-14 h-14 opacity-0 transition duration-800" :class="{'opacity-100 delay-100': scrolled}" src="logo_full_2.svg" />
       </a>
 
       <!-- Hamburger Menu -->
@@ -21,11 +21,12 @@ import { Icon } from "astro-icon/components";
       </button>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex text-lg font-medium gap-6 menu menu-horizontal text-primary-content">
+      <ul class="hidden md:flex text-lg font-medium gap-6 menu menu-horizontal text-base-content">
         <li><a href="/" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Úvod</a></li>
-        <li><a href="/daisyui" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">O nás</a></li>
-        <li><a href="/404" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Svatba</a></li>
-        <li><a href="/404" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Fotogalerie</a></li>
+        <li><a href="#ceremony" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Obřad</a></li>
+        <li><a href="#palette" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Paleta</a></li>
+        <li><a href="#program" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Program</a></li>
+        <li><a href="#foto" class="hover:text-amber-700 hover:bg-white/60 transition duration-300" :class="{'scale-120': !scrolled}">Fotogalerie</a></li>
       </ul>
     </div>
 

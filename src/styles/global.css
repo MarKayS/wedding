@@ -26,6 +26,10 @@
     .menu-item.show {
         @apply opacity-100 scale-100;
     }
+
+    .text-mont {
+        font-family: "Montserrat", sans-serif;
+    }
 }
 
 

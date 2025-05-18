@@ -1,6 +1,50 @@
 ---
 
 ---
+<style>
+    .semi-border {
+        --b: 1px; /* border thickness */
+        --c: rgba(0,0,0,0.2); /* border color */
+        --r: 6rem; /* border radius */
+        --corner-size: 100px; /* size of visible corners */
+
+        position: relative;
+        padding: 1rem;
+        border-radius: var(--r);
+        background: white;
+        z-index: 0;
+    }
+
+    /* shared corner-border base style */
+    .corner-border {
+        position: absolute;
+        inset: 0;
+        border: var(--b) solid var(--c);
+        border-radius: var(--r);
+        pointer-events: none;
+        z-index: 1;
+
+        /* fallback for Safari/WebKit */
+        -webkit-mask: none;
+        -webkit-mask-composite: source-over;
+        mask-composite: add;
+    }
+
+    /* Top-right corner only */
+    .corner-border.top-right {
+        -webkit-mask:
+                linear-gradient(#000 0 0) top right / var(--corner-size) var(--corner-size) no-repeat;
+    }
+
+    /* Bottom-left corner only */
+    .corner-border.bottom-left {
+        -webkit-mask:
+                linear-gradient(#000 0 0) bottom left / var(--corner-size) var(--corner-size) no-repeat;
+    }
+
+
+</style>
+
 <script type="text/javascript">
   function timer() {
     return {
@@ -55,31 +99,33 @@
   }
 </script>
 
-<section>
-  <div class="container px-5 pb-16 pt-12 mx-auto">
 
-    <div class="flex flex-col gap-8 items-center justify-center mx-auto">
+  <div class="relative max-w-3xl -top-24 px-5 -mb-48  mx-auto p-[1rem] rounded-xl rounded-tr-[7rem] rounded-bl-[7rem] bg-white">
+
+    <div class="relative flex flex-col gap-8 items-center justify-center mx-auto semi-border pb-16 pt-12">
+<div class="corner-border top-right"></div>
+<div class="corner-border bottom-left"></div>
 <h2 class="text-4xl tracking-wide">Své  ano  si  řekneme  už  za</h2>
 <div class="grid auto-cols-max grid-flow-col gap-6 text-center" x-data="timer()" x-init="init();">
-<div class="bg-base-200 rounded-box text-content flex flex-col p-4">
+<div class="border border-base-300 rounded-box text-content flex flex-col p-4">
 <span class="countdown font-serif text-5xl">
 <span :style="`--value: ${time().days};`" aria-live="polite">15</span>
 </span>
 dní
 </div>
-<div class="bg-base-200 rounded-box text-content flex flex-col p-4">
+<div class="border border-base-300 rounded-box text-content flex flex-col p-4">
 <span class="countdown font-serif text-5xl">
 <span :style="`--value: ${time().hours};`" aria-live="polite">10</span>
 </span>
 hodin
 </div>
-<div class="bg-base-200 rounded-box text-content flex flex-col p-4">
+<div class="border border-base-300 rounded-box text-content flex flex-col p-4">
 <span class="countdown font-serif text-5xl">
 <span :style="`--value: ${time().minutes};`" aria-live="polite">24</span>
 </span>
 minut
 </div>
-<div class="bg-base-200 rounded-box text-content flex flex-col p-4">
+<div class="border border-base-300 rounded-box text-content flex flex-col p-4">
 <span class="countdown font-serif text-5xl">
 <span :style="`--value: ${time().seconds};`" aria-live="polite"></span>
 </span>
@@ -87,9 +133,8 @@ sekund
 </div>
 </div>
 
-<div class=" mx-auto tracking-wide text-3xl">2. srpna 2024</div>
+<div class=" mx-auto tracking-wide text-3xl">2. srpna 2024 | 12:30</div>
     </div>
 
   </div>
 
-</section>
