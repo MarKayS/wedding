@@ -19,7 +19,8 @@
     .corner-border {
         position: absolute;
         inset: 0;
-        border: var(--b) solid var(--c);
+        border-style: solid;
+        border-color: var(--c);
         border-radius: var(--r);
         pointer-events: none;
         z-index: 1;
@@ -28,6 +29,7 @@
         -webkit-mask: none;
         -webkit-mask-composite: source-over;
         mask-composite: add;
+
     }
 
     /* Top-right corner only */
@@ -103,10 +105,10 @@
   <div class="relative max-w-3xl -top-24 px-5 -mb-48  mx-auto p-[1rem] rounded-xl rounded-tr-[7rem] rounded-bl-[7rem] bg-white">
 
     <div class="relative flex flex-col gap-8 items-center justify-center mx-auto semi-border pb-16 pt-12 px-8">
-<div class="corner-border top-right"></div>
-<div class="corner-border bottom-left"></div>
+<div class="corner-border top-right border-0 sm:border"></div>
+<div class="corner-border bottom-left  border-0 sm:border"></div>
 <h2 class="text-2xl sm:text-4xl tracking-wide">Své  ano  si  řekneme  už  za</h2>
-<div class="grid auto-cols-max grid-flow-col gap-6 text-center" x-data="timer()" x-init="init();">
+<div class="grid auto-cols-max grid-flow-col gap-2 sm:gap-3 md:gap-6 text-center" x-data="timer()" x-init="init();">
 <div class="border border-base-300 rounded-box text-content flex flex-col p-4 justify-center">
 <span class="countdown font-serif text-3xl sm:text-5xl text-center items-center flex justify-center">
 <span :style="`--value: ${time().days};`" aria-live="polite">15</span>
