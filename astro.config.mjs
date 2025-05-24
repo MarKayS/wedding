@@ -9,8 +9,9 @@ import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "http://svatba.kajfosz.cz",
   trailingSlash: "never",
+  description: "Svatební web Marka a Maru",
   integrations: [mdx(), sitemap(), icon(), alpinejs()],
   adapter: netlify(),
   vite: {
